@@ -4,10 +4,12 @@ export const isLoadingSlice = createSlice({
     name: 'isLoading',
     initialState: true,
     reducers: {
-
+        setIsLoading: (state, action) => {
+            return action.payload
+        }
     }
 })
 
-export const {  } = isLoadingSlice.actions;
+export const { setIsLoading } = isLoadingSlice.actions;
 
 export default isLoadingSlice.reducer;

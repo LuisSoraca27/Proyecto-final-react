@@ -1,0 +1,25 @@
+.imgProduct {
+    height: 250px;
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    margin: auto;
+}
+
+.imgProduct img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.product {
+    border: 1px solid rgba(0, 0, 0, .3);
+    margin: 10px auto;
+    border-radius: 7px;
+    width: 320px;
+    text-align: center;
+}
+.product h5 {
+    padding: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
