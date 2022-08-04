@@ -26,52 +26,54 @@ const Home = () => {
     }, [])
     console.log(categories)
     console.log(searchValue)
+    console.log(products)
     return (
         <div>
-            <Row>
-               <Col lg={3}>
-               <ListGroup>
-                {
-                    categories.map(category => (
-                        <ListGroup.Item key={category.id} onClick={() => dispatch(filterCategories(category.id))}>
-                            {category.name}
-                        </ListGroup.Item>
-                    ))
-                }
-            </ListGroup>
-               </Col>
-                <Col>
-
-               <h1>Home</h1>
-            <InputGroup className="mb-3">
-                <Form.Control
-                    placeholder="Recipient's username"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
-                    onChange={(e) => setSearchValue(e.target.value)}
-                    value={searchValue}
-                />
-                <Button variant="outline-secondary" onClick={() => dispatch(filterBynameProduct(searchValue))}>
-                    Button
-                </Button>
-            </InputGroup>
-              <Row>
-             <div className='d-flex flex-wrap '>
-             {
-                products.map(product => (
-                    <div onClick={() => navigate(`/product/${product.id}`)} key={product.id} className="product">
-                        <div className='imgProduct'>
-                            <img src={product.productImgs} alt="" />
+            <div className='row'>
+                <aside>
+                    <ListGroup className='categories'>
+                        <h3 style={{ textAlign: 'center' }}>Categories</h3>
+                        {
+                            categories.map(category => (
+                                <ListGroup.Item key={category.id} onClick={() => dispatch(filterCategories(category.id))}>
+                                    {category.name}
+                                </ListGroup.Item>
+                            ))
+                        }
+                    </ListGroup>
+                </aside>
+                <section>
+                    <form className=" Sinput">
+                        <input
+                            placeholder="What are you looking for ?"
+                            onChange={(e) => setSearchValue(e.target.value)}
+                            value={searchValue}
+                            className='Sinput'
+                        />
+                        <button onClick={() => dispatch(filterBynameProduct(searchValue))}>
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                        <div className='card-products'>
+                            {
+                                products.map(product => (
+                                    <div onClick={() => navigate(`/product/${product.id}`)} key={product.id} className="product">
+                                        <div className='imgProduct'>
+                                            <img src={product.productImgs} alt="" />
+                                        </div>
+                                        <h5>{product.title}</h5>
+                                        <div className='price'>
+                                            <p>price</p>
+                                            <h5>{product.price}</h5>
+                                            <button><i class="fa-solid fa-cart-shopping"></i></button>
+                                        </div>
+                                    </div>
+                                ))
+                            }
                         </div>
-                        <h5>{product.title}</h5>
-                    </div>
-                ))
-            }
-             </div>
-              </Row>
-                </Col>
-            </Row>
-           
+                </section>
+            </div>
+
         </div>
     );
 };

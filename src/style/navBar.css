@@ -1,33 +1,35 @@
-.logo {
-    width: 70%;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border-bottom: .3px solid rgba(0, 0, 0, .3);
+    min-height: 65px;
+}
+ header a {
+    text-decoration: none;
 }
 
-nav {
-    display: inline-block;
+a h3 {
+    padding: 15px;
+    font-weight: 700;
 }
 
-.login-logo {
-    margin: 0 15px;
+nav a {
+    padding: 15px 20px;
 }
 
-.login-logo i {
-    font-size: 21px;
-    color: grey;
-}
-.purchases-logo {
-    margin: 0 15px;
+a i {
+    font-size: 20px;
+    color: black;
 }
 
-.purchases-logo i {
-    font-size: 21px;
-    color: gray;
-}
+@media (min-width:992px) {
+    a i {
+        font-size: 18px;
+    }
 
-.shopping-logo {
-    margin: 0 15px;
+    nav a {
+        padding: 15px 86px;
+    }
 }
-.shopping-logo i{
-    font-size: 21px;
-    color: grey;
-}
-
