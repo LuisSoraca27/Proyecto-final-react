@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { filterBynameProduct, filterCategories, getProductsThunk } from '../store/slices/Products.slice';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import axios from 'axios';
-import ListGroup from 'react-bootstrap/ListGroup';
-import { Col, Row } from 'react-bootstrap';
 import '../style/home.css'
 
 const Home = () => {
@@ -24,6 +19,11 @@ const Home = () => {
         axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/categories`)
             .then(res => setCategories(res.data.data.categories))
     }, [])
+
+
+    const filterByCategories = (e) => {
+        dispatch(filterCategories(e.target.value))
+    }
     console.log(categories)
     console.log(searchValue)
     console.log(products)
@@ -31,16 +31,15 @@ const Home = () => {
         <div>
             <div className='row'>
                 <aside>
-                    <ListGroup className='categories'>
-                        <h3 style={{ textAlign: 'center' }}>Categories</h3>
+                    <select name="categories" onChange={filterByCategories} className='categories'>
+                        <option value="">All the products</option>
                         {
                             categories.map(category => (
-                                <ListGroup.Item key={category.id} onClick={() => dispatch(filterCategories(category.id))}>
+                                <option key={category.id} value={category.id}>
                                     {category.name}
-                                </ListGroup.Item>
-                            ))
-                        }
-                    </ListGroup>
+                                </option>
+                            ))}
+                    </select>
                 </aside>
                 <section>
                     <form className=" Sinput">
@@ -51,26 +50,28 @@ const Home = () => {
                             className='Sinput'
                         />
                         <button onClick={() => dispatch(filterBynameProduct(searchValue))}>
-                        <i className="fa-solid fa-magnifying-glass"></i>
+                            <i className="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </form>
-                        <div className='card-products'>
-                            {
-                                products.map(product => (
-                                    <div onClick={() => navigate(`/product/${product.id}`)} key={product.id} className="product">
-                                        <div className='imgProduct'>
-                                            <img src={product.productImgs} alt="" />
-                                        </div>
-                                        <h5>{product.title}</h5>
-                                        <div className='price'>
-                                            <p>price</p>
-                                            <h5>{product.price}</h5>
-                                            <button><i class="fa-solid fa-cart-shopping"></i></button>
-                                        </div>
+                    <div className='card-products'>
+                        {
+                            products.map(product => (
+                                <div onClick={() => navigate(`/product/${product.id}`)} key={product.id} className="product">
+                                    <div className='imgProduct'>
+                                        <img src={product.productImgs} alt="" />
                                     </div>
-                                ))
-                            }
-                        </div>
+                                    <div style={{ height: '80px' }}>
+                                        <h5>{product.title}</h5>
+                                    </div>
+                                    <div className='price'>
+                                        <p>price</p>
+                                        <h5>{product.price}</h5>
+                                        <button><i class="fa-solid fa-cart-shopping"></i></button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </section>
             </div>
 

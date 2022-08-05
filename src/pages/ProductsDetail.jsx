@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import Carousel from 'react-bootstrap/Carousel';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getProductsThunk } from '../store/slices/Products.slice';
+import '../style/productDetail.css'
 
 const ProductsDetail = () => {
 
@@ -10,11 +12,11 @@ const ProductsDetail = () => {
     const [suggestedProduct, setSuggestedProduct] = useState([]);
 
     const { id } = useParams();
-    const dispatch = useDispatch();  
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
 
-     useEffect(() => {
+    useEffect(() => {
         dispatch(getProductsThunk())
     }, [])
 
@@ -23,30 +25,59 @@ const ProductsDetail = () => {
         setProductDetail(productsAll);
         console.log(productDetail)
 
-        const filteredProducts = products.filter(product => 
+        const filteredProducts = products.filter(product =>
             product?.category?.id === productDetail?.category?.id
         )
         setSuggestedProduct(filteredProducts)
     }, [products, id])
-      console.log(suggestedProduct)
-   
+    console.log(suggestedProduct)
+    console.log(productDetail)
+
 
     return (
-        <div>
-            <h1>{productDetail?.title}</h1>
-            <div className='detailImg'>
-                <img src={productDetail?.productImgs?.[0]} alt="" />
+        <aside>
+            <div className='home'>
+                <a href="/#/">Home</a>
+                <i class="fa-solid fa-angle-right"></i>
+                <p>{productDetail?.title}</p>
             </div>
-             <div>
+
+            <div className='container-carrusel'>
+                <Carousel className='carrusel'>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100 carrusel-img"
+                            src={productDetail?.productImgs?.[0]}
+                            alt="First slide "
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100 carrusel-img"
+                            src={productDetail?.productImgs?.[1]}
+                            alt="Second slide"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100 carrusel-img"
+                            src={productDetail?.productImgs?.[2]}
+                            alt="Third slide"
+                        />
+                    </Carousel.Item>
+                </Carousel>
+            </div>
+
+            {/*   <div>
                 {
-                    suggestedProduct.map( product => (
+                    suggestedProduct.map(product => (
                         <h3 key={product.id} onClick={() => navigate(`/product/${product.id}`)}>
                             {product.title}
                         </h3>
                     ))
                 }
-             </div>
-        </div>
+            </div> */}
+        </aside>
     );
 };
 

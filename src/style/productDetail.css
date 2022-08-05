@@ -1,0 +1,43 @@
+
+aside {
+    width: 100%;
+}
+.home {
+    margin: 20px;
+}
+.home p {
+    display: inline;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.home i {
+    width: 2px;
+    height: 2px;
+    display: inline-block;
+    margin: 0 20px;
+    color: red;
+
+}
+
+.home a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .7)
+}
+
+.container-carrusel {
+    margin:  0 auto;
+}
+
+.carrusel {
+    width: 350px;
+    height: 350px;
+    margin: auto;
+}
+
+.carrusel-img {
+    object-fit: contain;
+    width: 350px;
+    height: 350px;
+
+}

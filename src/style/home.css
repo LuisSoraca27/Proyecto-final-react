@@ -7,8 +7,21 @@ aside {
     flex: 25%;
 }
 .categories {
-    width: 90%;
-    margin: 10px auto;
+    width: 80%;
+    height: 35px;
+    margin: 20px 32px;
+    border: none;
+    transition-duration: .5s;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+}
+.categories option {
+    font-size: 18px;
+    padding: 20px;
+    margin-top: 10px;
+    background:transparent;
+    border: none;
 }
 
 section {
@@ -32,8 +45,8 @@ height: 40px;
 .card-products {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
-    align-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 .imgProduct {
@@ -52,7 +65,7 @@ height: 40px;
 
 .product {
     border: 1px solid rgba(0, 0, 0, .2);
-    margin: 10px;
+    margin: 10px auto;
     border-radius: 7px;
     width: 320px;
    
