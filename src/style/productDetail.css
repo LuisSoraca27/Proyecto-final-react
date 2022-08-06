@@ -1,4 +1,5 @@
 
+
 aside {
     width: 100%;
 }
@@ -25,8 +26,14 @@ aside {
     color: rgba(0, 0, 0, .7)
 }
 
+.container {
+    display: flex;
+    margin-bottom: 70px;
+}
+
 .container-carrusel {
     margin:  0 auto;
+    width: 50%;
 }
 
 .carrusel {
@@ -39,5 +46,84 @@ aside {
     object-fit: contain;
     width: 350px;
     height: 350px;
+}
 
+.container-description {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.container-description h2 {
+    padding: 10px;
+    margin-top: 10px;
+}
+.description {
+    margin-bottom: 15px;
+}
+.container-description h5{
+    font-weight: 900;
+}
+.container-description p {
+    margin: 0;
+}
+
+.price-option {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+}
+.price-option p {
+   display: inline-block;
+   height: 30px;
+   width: 45px;
+   border: 1px solid rgba(0, 0, 0, .4);
+  position: relative;
+  bottom: 2.5px;
+
+}
+.price-option button {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+     border: 1px solid rgba(0, 0, 0, .4);
+     background: transparent;
+}
+
+.buttom-cart {
+    height: 40px;
+    background-color: #f85555;
+    border: none;
+    color: white;
+    width: 90%;
+    margin: 15px auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:800px) {
+.container {
+    flex-direction: column;
+}
+.container-carrusel {
+    width: 100%;
+}
+.container-description {
+    width: 100%;
+}
+.description {
+    order: 5;
+}
 }
