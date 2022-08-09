@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import { Home, ProductsDetail, Login, Favorites } from './pages'
+import { Home, ProductsDetail, Login, Purchases} from './pages'
 import { NavBar, LoadingScreen } from './components'
 import { useSelector } from 'react-redux'
-import Purchases from './pages/Purchases'
+
 
 function App() {
    

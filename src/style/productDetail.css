@@ -1,10 +1,15 @@
 
 
 aside {
+    padding-top: 20px;
+    
     width: 100%;
 }
 .home {
     margin: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    left: 20px;
 }
 .home p {
     display: inline;
@@ -28,7 +33,7 @@ aside {
 
 .container {
     display: flex;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 
 .container-carrusel {
@@ -101,19 +106,21 @@ aside {
     margin: 15px auto;
 }
 
-
-
-
-
-
-
-
-
+.title-suggested {
+    color: #f85555;
+    font-weight: 600;
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
 
 
 
 
 @media (max-width:800px) {
+aside {
+    padding: 0px;
+}
+
 .container {
     flex-direction: column;
 }

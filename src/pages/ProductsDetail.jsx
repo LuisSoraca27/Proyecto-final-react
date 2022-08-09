@@ -90,6 +90,7 @@ const ProductsDetail = () => {
                     <button className='buttom-cart'>Add to cart</button>
                 </div>
             </div>
+            <h5 className='title-suggested'>Discover similar items</h5>
             <div className='card-products'>
                 {
                     suggestedProduct.map(product => (
