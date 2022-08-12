@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { addProductThunk } from '../store/slices/cart.slice';
 import { getProductsThunk } from '../store/slices/Products.slice';
 import '../style/productDetail.css'
 
@@ -16,6 +17,22 @@ const ProductsDetail = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const counterIncrement = () => {
+        setCounter(counter + 1)
+    }
+    const counterDecrement = () => {
+        setCounter(counter - 1)
+    }
+    const addProduct = () => {
+        alert('añadiendo')
+        const product = {
+            id: productDetail.id,
+            quantity: counter
+        }
+        dispatch(addProductThunk(product))
+        console.log(product)
+    }
 
 
     useEffect(() => {
@@ -82,12 +99,12 @@ const ProductsDetail = () => {
                         </div>
                         <div>
                             <h6>Quantity</h6>
-                            <button>-</button>
+                            <button onClick={counterDecrement}>-</button>
                             <p>{counter}</p>
-                            <button>+</button>
+                            <button onClick={counterIncrement}>+</button>
                         </div>
                     </div>
-                    <button className='buttom-cart'>Add to cart</button>
+                    <button className='buttom-cart' onClick={addProduct}>Add to cart</button>
                 </div>
             </div>
             <h5 className='title-suggested'>Discover similar items</h5>

@@ -17,10 +17,28 @@ const Purchases = () => {
         <div className='container-purchases'>
              <div className='home'>
                 <a href="/#/">Home</a>
-                <i class="fa-solid fa-angle-right"></i>
+                <i className="fa-solid fa-angle-right"></i>
                 <p>purchases</p>
             </div>
             <h3>My purchases</h3>
+            <div>
+                {purchases.map(product => (
+                    <div key={product.id} className='purchases'>
+                        <div className='date-purchases'>
+                           <span>Fecha de compra: <b>{product.createdAt.substring(0,10)}</b></span>
+                        </div>
+                            {
+                                product.cart.products.map(product => (
+                                    <div key={product.id} className='purchase-detail'>
+                                        <p>{product.title}</p>
+                                        <div>{product?.productsInCart.quantity}</div>
+                                         <b>$ {product.price}</b>
+                                    </div>
+                                ))
+                            }
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

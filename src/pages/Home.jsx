@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { filterBynameProduct, filterCategories, getProductsThunk } from '../store/slices/Products.slice';
 import axios from 'axios';
 import '../style/home.css'
+import { addProductThunk } from '../store/slices/cart.slice';
 
 const Home = () => {
 
@@ -66,7 +67,16 @@ const Home = () => {
                                     <div className='price'>
                                         <p>price</p>
                                         <h5>{product.price}</h5>
-                                        <button><i class="fa-solid fa-cart-shopping"></i></button>
+                                        <button onClick={ () => {
+                                            const productAdd = {
+                                                id: product.id,
+                                                quantity: 1
+                                            }
+                                            console.log(productAdd)
+                                            dispatch(addProductThunk(productAdd))
+                                        }}>
+                                            <i className="fa-solid fa-cart-shopping"></i>
+                                        </button>
                                     </div>
                                 </div>
                             ))
