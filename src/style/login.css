@@ -1,5 +1,75 @@
 .login-container {
+    background: #f8f8f8;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login {
+    width: 85%;
+    margin: auto;
+    padding: 30px;
+    text-align: start;
+    background-color: white;
+    position: relative;
+    top: 55px;
+    color: #636363;
+    border-radius: 7px;
+}
+
+.test-data {
+    background-color: #d5f6fe;
+    padding: 16px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    text-align: center;
+}
+.data {
+   text-align: start;
+}
+.data p {
+    margin: 7px 0 0;
+}
+.data i {
+    margin-right: 4px;
+}
+
+
+@media(min-width: 922px) {
+    .login {
+        width: 24%;
+    }
+    .login h2 {
+        font-size: 25px;
+    }
+}
+
+
+
+
+.container-user-login {
+    width: 100%;
+    height: 100vh;
+    background-color: #f8f8f8;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.info_user {
+    background-color: #ffffff;
+    width: 360px;
+    padding: 15px;
+    text-align: center;
+}
+
+.info_user img {
+    width: 100px;
+    margin: auto ;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+.info_user button {
+    display: block;
+    margin: auto;
+    border: none;
 }

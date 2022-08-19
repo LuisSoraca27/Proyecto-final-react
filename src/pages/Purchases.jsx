@@ -8,14 +8,14 @@ const Purchases = () => {
     const purchases = useSelector(state => state.purchases)
 
     const dispatch = useDispatch();
-    
-   console.log(purchases)
+
+    console.log(purchases)
     useEffect(() => {
         dispatch(getPurchasesThunk())
     }, [])
     return (
         <div className='container-purchases'>
-             <div className='home'>
+            <div className='home'>
                 <a href="/#/">Home</a>
                 <i className="fa-solid fa-angle-right"></i>
                 <p>purchases</p>
@@ -25,17 +25,17 @@ const Purchases = () => {
                 {purchases.map(product => (
                     <div key={product.id} className='purchases'>
                         <div className='date-purchases'>
-                           <span>Fecha de compra: <b>{product.createdAt.substring(0,10)}</b></span>
+                            <span>Fecha de compra: <b>{product.createdAt.substring(0, 10)}</b></span>
                         </div>
-                            {
-                                product.cart.products.map(product => (
-                                    <div key={product.id} className='purchase-detail'>
-                                        <p>{product.title}</p>
-                                        <div>{product?.productsInCart.quantity}</div>
-                                         <b>$ {product.price}</b>
-                                    </div>
-                                ))
-                            }
+                        {
+                            product.cart.products.map(product => (
+                                <div key={product.id} className='purchase-detail'>
+                                    <div className='title-product'> <p>{product.title}</p></div>
+                                    <div className='quantity-cart'>{product?.productsInCart.quantity}</div>
+                                    <b>$ {product.price}</b>
+                                </div>
+                            ))
+                        }
                     </div>
                 ))}
             </div>

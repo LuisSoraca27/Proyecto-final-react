@@ -5,7 +5,7 @@
 
 .purchases {
     border: .5px solid rgba(0, 0, 0, .3);
-    margin: 30px;
+    margin: 30px 10px;
 }
 
 .date-purchases {
@@ -15,6 +15,22 @@
 
 .purchase-detail {
     display: flex;
-    padding: 30px;
+    padding: 20px;
     justify-content: space-around;
+    flex-wrap: nowrap;
+}
+.title-product {
+    width: 50%;
+}
+.quantity-cart {
+    width: 30px;
+    height: 25px;
+    border: .3px solid rgba(0, 0, 0, .3);
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container-purchases {
+        width: 92%;
+    }
 }
